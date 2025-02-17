@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AW23_PRRPRR01_16_Textalgoritmer {
@@ -56,13 +57,14 @@ namespace AW23_PRRPRR01_16_Textalgoritmer {
 
 		static void Main(string[] args) {
 
-			string myInput = "älgzoo123";
-			string myOutput = BetterEncrypt(myInput, 5);
-			//string decrypted = BetterDecrypt(myInput, 5);
+			Regex personalNumberPattern = 
+				new Regex(@"^(\d{2})?(\d{6})[-+]?(\d{4})$");
 
-			Console.WriteLine(myOutput);
-			//Console.WriteLine(decrypted);
+			Console.WriteLine(personalNumberPattern.IsMatch("0402608-1234"));
 
+			Match match = personalNumberPattern.Match("040208-1234");
+
+			Console.WriteLine(match.Groups[2] + "-" + match.Groups[3]);
 		}
 	}
 }
