@@ -65,6 +65,9 @@ namespace AW23_PRRPRR01_16_Textalgoritmer {
 			Match match = personalNumberPattern.Match("040208-1234");
 
 			Console.WriteLine(match.Groups[2] + "-" + match.Groups[3]);
+
+			string formatted = personalNumberPattern.Replace("200402080691", "$2-$3");
+			Console.WriteLine(formatted);
 		}
 	}
 }
